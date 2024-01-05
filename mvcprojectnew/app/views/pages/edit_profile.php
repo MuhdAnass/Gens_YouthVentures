@@ -78,6 +78,9 @@
                 <select class="form-select form-select-solid form-select-lg" name="st_race">
                     <option value="<?php echo $studentProfile->st_race ?>"><?php echo $studentProfile->st_race ?></option>
                     <option value="Malay">Malay</option>
+                    <option value="Malay">India</option>
+                    <option value="Malay">Chinese</option>
+                    <option value="Malay">Others</option>
                     <!-- Additional options here -->
                 </select>
             </div>
@@ -89,6 +92,24 @@
             <div class="col-lg-8">
                 <select class="form-select form-select-solid form-select-lg" name="univ_code">
                     <option value="UTM">UTM</option>
+                    <option value="Malay">UKM</option>
+                    <option value="Malay">UM</option>
+                    <option value="Malay">USM</option>
+                    <option value="Malay">UPM</option>
+                    <option value="Malay">UITM</option>
+                    <option value="Malay">UIAM</option>
+                    <option value="Malay">UUM</option>
+                    <option value="Malay">UNIMAS</option>
+                    <option value="Malay">UMS</option>
+                    <option value="Malay">UPSI</option>
+                    <option value="Malay">USIM</option>
+                    <option value="Malay">UMT</option>
+                    <option value="Malay">UTHM</option>
+                    <option value="Malay">UMPSA</option>
+                    <option value="Malay">UniMAP</option>
+                    <option value="Malay">UniSZA</option>
+                    <option value="Malay">UMK</option>
+                    <option value="Malay">UPNM</option>
                     <!-- Additional options here -->
                 </select>
             </div>
