@@ -141,9 +141,9 @@
 												<!--end::Avatar-->
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
-													<div class="fw-bold d-flex align-items-center fs-5">Robert Fox 
+													<div class="fw-bold d-flex align-items-center fs-5"><?php echo $_SESSION['username']?>
 													<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">robert@kt.com</a>
+													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7"><?php echo $_SESSION['email']?></a>
 												</div>
 												<!--end::Username-->
 											</div>
