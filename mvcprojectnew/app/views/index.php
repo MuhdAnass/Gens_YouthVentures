@@ -16,26 +16,6 @@
 
          <!--------------------------start adjust here------------------------------------------------------------>
 
-         <div class="card shadow-sm">
-             <div class="card-header">
-                 <h3 class="card-title">Your Dashboard</h3>
-                 <div class="card-toolbar">
-                     <!-- if want to put toolbar-->
-                 </div>
-             </div>
-             <div class="card-body">
-
-                 <!--------------------------------------------------------------------------------->
-
-                 <?php require APPROOT . '/views/dashboard/index.php'   ?>
-
-                 <!--------------------------------------------------------------------------------->
-
-             </div>
-             <div class="card-footer">
-                 Footer
-             </div>
-         </div>
 
          <!--------------------------end adjust here------------------------------------------------------------>
 

@@ -10,29 +10,6 @@
 				<!--------------------------------------------start dashboard------------------------------------------------------------------------------------->
 
 
-				<!--begin:Menu item-->
-				<div class="menu-item pt-5">
-					<!--begin:Menu content-->
-					<div class="menu-content">
-						<span class="menu-heading fw-bold text-uppercase fs-7">Dashboard</span>
-					</div>
-					<!--end:Menu content-->
-				</div>
-				<!--end:Menu item-->
-
-				<!--begin:Menu item-->
-				<div class="menu-item">
-					<!--begin:Menu link-->
-					<a class="menu-link" href="<?php echo URLROOT; ?>/dashboard">
-						<span class="menu-bullet">
-							<span class="bullet bullet-dot"></span>
-						</span>
-						<span class="menu-title">Dashboard</span>
-					</a>
-					<!--end:Menu link-->
-				</div>
-				<!--end:Menu item-->
-
 
 
 				<!--------------------------------------------end dashboard------------------------------------------------------------------------------------->
