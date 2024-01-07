@@ -6,7 +6,6 @@
 
 
         <!--Content area here-->
-
         <?php
                     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
                         $url = "https://";
@@ -17,27 +16,26 @@
 
                     // Append the requested resource location to the URL   
                     $url .= $_SERVER['REQUEST_URI'];
-                  
+                    
                     ?>
 
         <?php
-                 
+
                     $c_url = URLROOT . "/activities"; 
                     $t_url = URLROOT . "/activities/create"; 
-
+                    $u_url = '';                 
+                
                     if (isset($data['activity']) && is_object($data['activity'])) {
-
                     $u_url = URLROOT . "/activities/update/".$data['activity']->act_id; 
-
                     }
-
+                    
 
 
                     //error_reporting(0);
                     if ($url == $c_url) {
         
                         require 'manage.php';
-                 
+
                     }elseif($url == $t_url){
 
                         require 'create.php';
@@ -51,10 +49,6 @@
                     }
 
                     ?>
-
-                    
-        <!--End of Content area here-->
-        
 
         <!--end::Row-->
     </div>

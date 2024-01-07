@@ -8,16 +8,21 @@
         </div>
     </div>
     <div class="card-body">
-  
+        
     <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
                         <th>Title</th>
                         <th>Content</th>
-                        <th>Date</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Venue</th>
+                        <th>Image</th>
                         <th>Action</th>
-                     
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -25,11 +30,16 @@
                     <tr>
                         <td><?php echo $activity->act_title; ?></td>
                         <td><?php echo $activity->act_desc; ?></td>
-                        <td><?php echo date('F j h:m', strtotime($activity->act_datetime)); ?></td>
-                        <td> <a href="<?php echo URLROOT . "/activities/update/" . $activity->act_id ?>"
-                                class="btn btn-light-warning">Update</a> 
-                            
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <td><?php echo $activity->act_startdate; ?></td>
+                        <td><?php echo $activity->act_enddate; ?></td>
+                        <td><?php echo $activity->act_starttime; ?></td>
+                        <td><?php echo $activity->act_endtime; ?></td>
+                        <td><?php echo $activity->act_venue; ?></td>
+                        <td><?php echo $activity->act_image; ?></td>
+                        
+                        <td><a href="<?php echo URLROOT . "/activities/update/" . $activity->act_id ?>" class="btn btn-light-warning">Update</a>
+                    
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#kt<?php echo $activity->act_id?>">
                                 Delete
                             </button>
@@ -50,14 +60,13 @@
                                         </div>
 
                                         <div class="modal-body">
-
-                                            Are you sure want to delete this activity?
-
+                                            Are you sure want to delete this transaction?
                                         </div>
 
                                         <div class="modal-footer">
-                                            <form action="<?php echo URLROOT . "/activities/delete/" . $activity->act_id; ?>" method="POST">
-                                                <!-- <input type="hidden" id="expenses" name="expenses" value="expenses"> -->
+                                            <form action="<?php echo URLROOT . "/activities/delete/" . $activity->act_id; ?>"
+                                                method="POST">
+                                                <input type="hidden" id="expenses" name="expenses" value="expenses">
                                                 <button type="button" class="btn btn-light-primary font-weight-bold"
                                                     data-dismiss="modal">Close</button>
                                                 <button type="submit"
@@ -67,7 +76,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </td>
                         
                     </tr>
@@ -88,6 +96,7 @@
         </script>
 
 
+      
     </div>
     <div class="card-footer">
         Footer
