@@ -12,7 +12,7 @@
 
         <form action="<?php echo URLROOT; ?>/activities/create" method="POST" enctype="multipart/form-data">
             <div class="mb-10">
-                <label for="exampleFormControlInput1" class="required form-label">Actvity </label>
+                <label for="exampleFormControlInput1" class="required form-label">Activity </label>
                 <input type="text" name="act_title" class="form-control form-control-solid" placeholder="Title" required />
             </div>
 
