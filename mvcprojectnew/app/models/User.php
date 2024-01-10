@@ -1,47 +1,47 @@
 <?php
 class User {
     private $db;
+
     public function __construct() {
         $this->db = new Database;
     }
 
-    // public function register($data) {
-    //     $this->db->query('INSERT INTO users (username, email, password) VALUES(:username, :email, :password)');
-
-    //     //Bind values
-    //     $this->db->bind(':username', $data['username']);
-    //     $this->db->bind(':email', $data['email']);
-    //     $this->db->bind(':password', $data['password']);
-
-    //     //Execute function
-    //     if ($this->db->execute()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-
-    public function register($data)
-    {
+    public function register($data) {
 
         // Set timezone 
         date_default_timezone_set("Asia/Taipei");
         $user_datetime = date('Y-m-d H:i:s');
         $user_reg_status = "active";
 
-        //insert value for user registration
-        //insert value for profile detail
+        // Insert value for user registration
+        // Insert value for profile detail
         if ($data['user_role'] == "Student") {
 
-            //student users and profile
+            // Student users and profile
             $this->db->query("INSERT INTO users (username, email, password, user_role, datetime_register, user_reg_status) 
-            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
-            
-            INSERT INTO st_profile (st_ic, st_email, st_fullname, st_gender, st_race, univ_code, st_address, st_image) 
-            VALUES(:st_ic, :st_email, :st_fullname, :st_gender, :st_race, :univ_code, :st_address , :st_image );");
+                              VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status)");
 
-            //Bind values for st_profile table
+            // Bind values for users table
+            $this->db->bind(':username', $data['username']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':user_role', $data['user_role']);
+            $this->db->bind(':datetime_register', $user_datetime);
+            $this->db->bind(':user_reg_status', $user_reg_status);
+
+            // Execute the query
+            if (!$this->db->execute()) {
+                return false;
+            }
+
+            // Retrieve the last inserted user ID
+            $user_id = $this->db->lastInsertId();
+
+            // Insert value for st_profile table
+            $this->db->query("INSERT INTO st_profile (user_id, st_ic, st_email, st_fullname, st_gender, st_race, univ_code, st_address, st_image) 
+                              VALUES(:user_id, :st_ic, :st_email, :st_fullname, :st_gender, :st_race, :univ_code, :st_address, :st_image)");
+
+            // Bind values for st_profile table
             $st_ic = "";
             $st_fullname = "";
             $st_gender = "";
@@ -50,8 +50,7 @@ class User {
             $st_address = "";
             $st_image = "";
 
-         //Bind values for users table
-
+            $this->db->bind(':user_id', $user_id);
             $this->db->bind(':st_ic', $st_ic);
             $this->db->bind(':st_email', $data['email']);
             $this->db->bind(':st_fullname', $st_fullname);
@@ -60,8 +59,15 @@ class User {
             $this->db->bind(':univ_code', $univ_code);
             $this->db->bind(':st_address', $st_address);
             $this->db->bind(':st_image', $st_image);
-      
-            //Bind values for users table
+
+            // Execute the query
+            return $this->db->execute();
+        } elseif ($data['user_role'] == "Client") {
+            // Insert client-specific data into the database
+            $this->db->query("INSERT INTO users (username, email, password, user_role, datetime_register, user_reg_status)
+                              VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status)");
+
+            // Bind values for users table
             $this->db->bind(':username', $data['username']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -69,19 +75,13 @@ class User {
             $this->db->bind(':datetime_register', $user_datetime);
             $this->db->bind(':user_reg_status', $user_reg_status);
 
-        } elseif ($data['user_role'] == "Partner") {
-         
-
+            // Execute the query
+            return $this->db->execute();
         } else {
-           
-        }
-
-        //execute function
-        if ($this->db->execute()) {
-            return true;
-        } else {
+            // Handle other user roles if needed
             return false;
         }
+    
     }
 
     public function login($username, $password) {
@@ -115,6 +115,21 @@ class User {
         if($this->db->rowCount() > 0) {
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public function updateUserRole ($user_id, $user_role)
+    {
+        $this->db->query('UPDATE users SET user_role=:user_role WHERE id= :user_id');
+
+        $this->db->bind(':user_role',$user_role);
+        $this->db->bind(':user_id',$user_id);
+
+        if($this->db->execute()){
+            return true;
+        }
+        else{
             return false;
         }
     }

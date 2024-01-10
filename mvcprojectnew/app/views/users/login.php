@@ -92,6 +92,8 @@
 									<?php }?>
                                 <!--end::Password-->
                             </div>
+
+                            
                             <!--end::Input group=-->
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">

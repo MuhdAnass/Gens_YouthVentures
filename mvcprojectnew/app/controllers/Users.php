@@ -80,6 +80,8 @@ class Users extends Controller {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
+                $data['user_role'] = $data['user_role'];
+
                 //Register user from model function
                 if ($this->userModel->register($data)) {
                     //Redirect to the login page
@@ -151,8 +153,9 @@ class Users extends Controller {
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
         $_SESSION['user_role'] = $user->user_role;
-        header('location:' . URLROOT . '/pages/index');
+        header('location:' . URLROOT . '/pages/index/' . $user->id);
     }
+    
 
     public function logout() {
         unset($_SESSION['user_id']);
