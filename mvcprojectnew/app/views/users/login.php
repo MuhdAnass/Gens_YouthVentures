@@ -61,10 +61,10 @@
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
                                 <!--begin::Title-->
-                                <h1 class="text-gray-900 fw-bolder mb-3">Sign In</h1>
+                                <h1 class="text-gray-900 fw-bolder mb-3" style="font-family: 'Times New Roman', Times, serif; font-size: 46px;">Sign In</h1>
                                 <!--end::Title-->
                                 <!--begin::Subtitle-->
-                                <div class="text-gray-500 fw-semibold fs-6">Youth Ventures Data Management System</div>
+                                <div class="text-gray-500 fw-semibold fs-6" style="font-family: 'Garamond', serif; font-size: 22px !important;">Youth Ventures Data Management System</div>
                                 <!--end::Subtitle=-->
                             </div>
                             <!--begin::Heading-->
@@ -118,9 +118,10 @@
                             </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
-                            <div class="text-gray-500 text-center fw-semibold fs-6">Not a Member yet?
-                                <a href="<?php echo URLROOT; ?>/users/register" class="link-primary">Sign up</a>
+                            <div class="text-gray-500 text-center fw-semibold fs-6" style="font-family: Bradley Hand, cursive;">
+                            Not a Member yet? <a href="<?php echo URLROOT; ?>/users/register" class="link-primary">Sign up</a>
                             </div>
+
                             <!--end::Sign up-->
                         </form>
                         <!--end::Form-->
@@ -149,12 +150,39 @@
                     <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7"></h1>  <!-- Tambah ayat kalau nak-->
                     <!--end::Title-->
                     <!--begin::Text-->
-                    <div class="d-none d-lg-block text-white fs-base text-center">DEVELOPING SUSTAINABLE ECOSYSTEM FOR PASSIONATE
-                        <a href="#" class="opacity-75-hover text-warning fw-bold me-1">YOUTH</a> TO PURSUE THEIR
-                        <br />
-                        <a href="#" class="opacity-75-hover text-warning fw-bold me-1">DREAM</a>
-                        <br />
-                    </div>
+                    <style>
+    .genz-text {
+        font-family: 'Cambria', sans-serif;
+        color: white;
+        font-size: 1.5rem; /* Adjust the font size as needed */
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .genz-special {
+        font-family: 'URW Chancery L', cursive; /* Replace 'YourSpecialFont' with the desired font family */
+        color: #FFD700;
+        opacity: 0.75;
+        text-decoration: none;
+        font-weight: bold;
+        margin-right: 0.5rem;
+        font-size: 25px;
+    }
+
+    .genz-link:hover {
+        color: #FFA500;
+    }
+</style>
+
+<!-- Apply the styles to your HTML -->
+<div class="d-none d-lg-block genz-text">
+    DEVELOPING SUSTAINABLE ECOSYSTEM FOR PASSIONATE
+    <a href="#" class="genz-special">YOUTH</a> TO PURSUE THEIR
+    <br />
+    <a href="#" class="genz-special">DREAM</a>
+    <br />
+</div>
+
                     <!--end::Text-->
                 </div>
                 <!--end::Content-->
