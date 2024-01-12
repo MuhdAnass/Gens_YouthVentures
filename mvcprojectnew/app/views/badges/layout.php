@@ -23,7 +23,8 @@
 
                     $c_url = URLROOT . "/badges"; 
                     $t_url = URLROOT . "/badges/create"; 
-                    $u_url = '';                 
+                    $u_url = '';
+                    $a_url = URLROOT . "badges/admin_assign";                 
                 
                     if (isset($data['badge']) && is_object($data['badge'])) {
                     $u_url = URLROOT . "/badges/update/".$data['badge']->badge_id; 
@@ -43,8 +44,11 @@
 
                         require 'update.php';
 
-                    }else{
+                    }elseif($url == $a_url){
 
+                        require 'admin_assign.php';
+                    }else{
+                        
                     }
 
                     ?>

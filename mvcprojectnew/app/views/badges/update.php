@@ -1,9 +1,9 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Update Activity</h3>
+        <h3 class="card-title">Update Badge</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            
+                <a href="<?php echo URLROOT;?>/badges" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
             <?php endif; ?>
         </div>
     </div>
@@ -15,8 +15,8 @@
             
         
             <div class="mb-10">
-                <label for="exampleFormControlInput1" class="required form-label">Badge </label>
-                <input type="text" name="act_title" class="form-control form-control-solid" value="<?php echo $data['badge']->badge_title ?>" required />
+                <label for="exampleFormControlInput1" class="required form-label">Badge Name</label>
+                <input type="text" name="badge_title" class="form-control form-control-solid" value="<?php echo $data['badge']->badge_title ?>" required />
             </div>
 
             <div class="mb-10">
@@ -24,15 +24,15 @@
             <div class="col-lg-8">
                 <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('<?php echo URLROOT."/public/".$data['badge']->badge_img; ?>')">
                     <div class="image-input-wrapper w-125px h-125px" style="background-image: url('<?php echo URLROOT."/public/".$data['badge']->badge_img; ?>')"></div>
-                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change image">
                         <i class="ki-duotone ki-pencil fs-7"></i>
                         <input type="file" name="file" accept=".png, .jpg, .jpeg" />
                         <input type="hidden" name="profile_avatar_remove" />
                     </label>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
                 </div>
@@ -44,7 +44,7 @@
                 <label for="exampleFormControlInput1" class="form-label">Badge Description</label>
                 <div class="position-relative">
                     <div class="required position-absolute top-0"></div>
-                    <textarea name="act_desc" class="form-control" aria-label="With textarea" required><?php echo $data['badge']->badge_desc ?></textarea>
+                    <textarea name="badge_desc" class="form-control" aria-label="With textarea" required><?php echo $data['badge']->badge_desc ?></textarea>
                 </div>
             </div>
 

@@ -23,15 +23,21 @@
 
                     $c_url = URLROOT . "/activities"; 
                     $t_url = URLROOT . "/activities/create"; 
-                    $u_url = '';                 
+                    $u_url = '';            
+                    $f_url = URLROOT . "/activities/joined";   
+                    
+                    
                 
                     if (isset($data['activity']) && is_object($data['activity'])) {
-                    $u_url = URLROOT . "/activities/update/".$data['activity']->act_id; 
+                    $u_url = URLROOT . "/activities/update/".$data['activity']->act_id;
+                    $f_url = URLROOT . "/activities/form".$data['activity']->act_id; 
                     }
                     
-
+                   $userRole = $_SESSION['user_role']; //student/client/admin
 
                     //error_reporting(0);
+                if ($userRole == 'Client' || $userRole == 'Admin'){
+
                     if ($url == $c_url) {
         
                         require 'manage.php';
@@ -46,7 +52,20 @@
 
                     }else{
 
+
                     }
+                }elseif ($userRole == 'Student'){
+
+                    if ($url == $c_url) {
+        
+                        require 'manage.php';
+
+                    }elseif($url == $f_url){
+
+                        require 'joined.php';
+
+                    }
+                }
 
                     ?>
 

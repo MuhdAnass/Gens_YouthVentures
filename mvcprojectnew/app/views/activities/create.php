@@ -3,7 +3,7 @@
         <h3 class="card-title">Create Activity</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            
+                <a href="<?php echo URLROOT; ?>/activities" ></a>
             <?php endif; ?>
         </div>
     </div>
@@ -25,6 +25,16 @@
                 <label for="endDate" class="required form-label">End Date</label>
                 <input type="date" name="act_enddate" class="form-control form-control-solid" required />
             </div>
+            
+            <div class="mb-10">
+                <label for="exampleFormControlInput1" class="required form-label">Date Registration Start</label>
+                <input type="date" name="date_reg_start" class="form-control form-control-solid" required />
+            </div>
+
+            <div class="mb-10">
+                <label for="exampleFormControlInput1" class="required form-label">Date Registration End</label>
+                <input type="date" name="date_reg_end" class="form-control form-control-solid" required />
+            </div>
 
             <div class="mb-10">
                 <label for="startTime" class="required form-label">Start Time</label>
@@ -45,30 +55,48 @@
                 <label for="exampleFormControlInput1" class="form-label">Description</label>
                 <div class="position-relative">
                     <div class="required position-absolute top-0"></div>
-                    <textarea name="act_desc" class="form-control" aria-label="With textarea" required></textarea>
+                    <textarea name="act_desc" class="form-control" aria-label="With textarea" placeholder="Event description, knowledge and skills participants will obtain, etc" required></textarea>
                 </div>
             </div>
+
+            <div class="mb-10">
+                <label for="exampleFormControlInput1" class="required form-label">Category</label>
+                <select name="act_category" class="form-select form-select-solid" aria-label="Choose One" required>
+                    <option value="" disabled selected>Choose One</option>
+                    <option value="Competition / Scholarship">Competition / Scholarship </option>
+                    <option value="Program / Activities">Program / Activities</option>
+                    <option value="Bootcamp / Workshop">Bootcamp / Workshop</option>
+                    <option value="Part Time">Part Time/Volunteering</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div> 
+
+            <div class="mb-10">
+                <label for="max_participants" class="required form-label">Maximum Participants</label>
+                <input type="number" name="max_participants" class="form-control form-control-solid" placeholder="Maximum Participants" required />
+            </div>
+
 
             <div class="mb-10">
             <label class="col-lg-4 col-form-label fw-semibold fs-6">Image</label>
             <div class="col-lg-8">
                 <div class="image-input image-input-outline" data-kt-image-input="true">
                     <div class="image-input-wrapper w-125px h-125px"></div>
-                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change image">
                         <i class="ki-duotone ki-pencil fs-7"></i>
                         <input type="file" name="file" accept=".png, .jpg, .jpeg" />
                         <input type="hidden" name="profile_avatar_remove" />
                     </label>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
                 </div>
                 <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
             </div>
-        </div>
+            </div>
 
             <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
 

@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Manage Badges</h3>
+        <h3 class="card-title">List of Badges</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
             <a href="<?php echo URLROOT;?>/badges/create" class="btn btn-light-primary">Create</a>
@@ -13,8 +13,8 @@
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
-                        <th>Badge</th>
-                        <th>Content</th>
+                        <th>Badges</th>
+                        <th>Description</th>
                         <th>Image</th>
                         <th>Action</th>
                         
@@ -25,7 +25,8 @@
                     <tr>
                         <td><?php echo $badge->badge_title; ?></td>
                         <td><?php echo $badge->badge_desc; ?></td>
-                        <td><?php echo $badge->badge_img; ?></td>
+                        <td><img src="<?php echo $badge->badge_img; ?>" alt="Badge Image" style="width: 90px; height: 90px;"></td>
+
                         
                         <td><a href="<?php echo URLROOT . "/badges/update/" . $badge->badge_id ?>" class="btn btn-light-warning">Update</a>
                     

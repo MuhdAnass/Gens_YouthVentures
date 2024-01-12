@@ -3,7 +3,7 @@
         <h3 class="card-title">Create Badge</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            
+                <a href="<?php echo URLROOT;?>/badges" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
             <?php endif; ?>
         </div>
     </div>
@@ -12,7 +12,7 @@
 
         <form action="<?php echo URLROOT; ?>/badges/create" method="POST" enctype="multipart/form-data">
             <div class="mb-10">
-                <label for="exampleFormControlInput1" class="required form-label">Badge </label>
+                <label for="exampleFormControlInput1" class="required form-label">Badge Name </label>
                 <input type="text" name="badge_title" class="form-control form-control-solid" placeholder="Badge name" required />
             </div>
 
@@ -29,15 +29,15 @@
             <div class="col-lg-8">
                 <div class="image-input image-input-outline" data-kt-image-input="true">
                     <div class="image-input-wrapper w-125px h-125px"></div>
-                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change image">
                         <i class="ki-duotone ki-pencil fs-7"></i>
                         <input type="file" name="file" accept=".png, .jpg, .jpeg" />
                         <input type="hidden" name="profile_avatar_remove" />
                     </label>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove image">
                         <i class="ki-duotone ki-cross fs-2"></i>
                     </span>
                 </div>
